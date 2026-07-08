@@ -32,6 +32,8 @@ export default function HeroSection({
   // Static labels
   const artNoteLabel = t('電腦模擬效果圖，僅供參考')
   const scrollLabel = t('向下探索')
+  const disclaimerLabel = t('獨立資訊平台，非官方網站')
+  const disclaimerText = t('本網站為花園豪宅獨立資訊平台，旨在提供客觀分析與參考資訊，並非發展項目之官方網站。')
 
   // Stats - convert label to selected language
   const translatedStats = stats.map(s => ({ ...s, label: t(s.label) }))
@@ -107,9 +109,27 @@ export default function HeroSection({
 
         {/* Decorative divider */}
         <div
-          className="w-16 h-[1px] mt-8 mb-6 scale-x-0 animate-[scaleX_0.8s_0.8s_ease-out_forwards] origin-center"
+          className="w-16 h-[1px] mt-8 mb-4 scale-x-0 animate-[scaleX_0.8s_0.8s_ease-out_forwards] origin-center"
           style={{ backgroundColor: 'var(--color-accent)' }}
         ></div>
+
+        {/* Non-official disclaimer - small, subtle text */}
+        <ScrollAnimation delay={0.28}>
+          <div className="mb-6">
+            <p
+              className="text-[11px] md:text-xs tracking-wider font-[family-name:var(--font-body)]"
+              style={{ color: 'var(--color-text-muted)' }}
+            >
+              <a
+                href="#footer"
+                className="underline underline-offset-2 hover:opacity-80 transition-opacity"
+                title={disclaimerText}
+              >
+                {disclaimerLabel}
+              </a>
+            </p>
+          </div>
+        </ScrollAnimation>
 
         {/* Address (middle of hero, below name) */}
         {address && (

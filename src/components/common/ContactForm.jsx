@@ -123,28 +123,30 @@ export default function ContactForm({
   }
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32 px-6 lg:px-12 scroll-mt-24"
-             style={{ scrollMarginTop: '6rem', backgroundColor: 'var(--color-bg-alt)' }}>
+    <section id="contact" className="relative py-24 lg:py-32 px-6 lg:px-12"
+             style={{ backgroundColor: 'var(--color-bg-alt)' }}>
       <div className="mx-auto max-w-5xl">
-        <div className="text-center" style={{ minHeight: '5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          {title && (
-            <h2 className="text-3xl lg:text-5xl font-semibold tracking-[0.05em] font-[family-name:var(--font-display)]"
-                style={{ color: 'var(--color-text)', lineHeight: 1.2 }}>
-              {t(title)}
-            </h2>
-          )}
-          {subtitle && (
-            <p className="mt-3 text-sm tracking-[0.15em] font-[family-name:var(--font-body)]"
-               style={{ color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
-              {t(subtitle)}
-            </p>
-          )}
-        </div>
+        <ScrollAnimation>
+          <div className="text-center mb-12">
+            {title && (
+              <h2 className="text-3xl lg:text-5xl font-semibold tracking-[0.05em] font-[family-name:var(--font-display)] leading-none"
+                  style={{ color: 'var(--color-text)', minHeight: '1.2em' }}>
+                {t(title)}
+              </h2>
+            )}
+            {subtitle && (
+              <p className="mt-3 text-sm tracking-[0.15em] font-[family-name:var(--font-body)] leading-snug"
+                 style={{ color: 'var(--color-text-secondary)', minHeight: '1.5em' }}>
+                {t(subtitle)}
+              </p>
+            )}
+          </div>
+        </ScrollAnimation>
 
         {/* Trust tagline */}
         <ScrollAnimation>
-          <p className="text-center mb-10 text-sm font-[family-name:var(--font-body)]"
-             style={{ color: 'var(--color-text-secondary)', lineHeight: 1.5, minHeight: '1.5em' }}>
+          <p className="text-center mb-10 text-sm font-[family-name:var(--font-body)] leading-snug"
+             style={{ color: 'var(--color-text-secondary)', minHeight: '1.5em' }}>
             { t('專業獨立分析，助您判斷 Garden Regency 芊御是否適合您') }
           </p>
         </ScrollAnimation>

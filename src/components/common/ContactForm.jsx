@@ -143,6 +143,14 @@ export default function ContactForm({
           </div>
         </ScrollAnimation>
 
+        {/* Trust tagline */}
+        <ScrollAnimation>
+          <p className="text-center mb-10 text-sm font-[family-name:var(--font-body)]"
+             style={{ color: 'var(--color-text-secondary)' }}>
+            { t('專業獨立分析，助您判斷 Garden Regency 芊御是否適合您') }
+          </p>
+        </ScrollAnimation>
+
         <div className="grid md:grid-cols-2 gap-10 items-start">
           {/* Form or Success Message */}
           <ScrollAnimation>

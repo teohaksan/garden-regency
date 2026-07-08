@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>芊御 GARDEN REGENCY</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body, #container { width: 100%; height: 100%; }
+    body { background: #07120a; }
+    #container { position: relative; }
+    .label {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(7, 18, 10, 0.88);
+      color: #C8A96E;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      border: 1px solid rgba(200, 169, 110, 0.3);
+      z-index: 10;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+    .label .name { display: block; margin-bottom: 2px; }
+    .label .addr { color: rgba(200, 169, 110, 0.55); font-weight: 400; font-size: 11px; }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="label">
+      <span class="name">芊御 GARDEN REGENCY</span>
+      <span class="addr">元朗錦田北映河路1A號</span>
+    </div>
+  </div>
+
+  <!-- Tencent Maps JS API (free, no login required in China) -->
+  <script src="https://map.qq.com/api/gljs?v=1.exp&key=OB4BZ-D4W3U-B7OV2-2Z2FG-GAQZAF6WCZ3"></script>
+  <script>
+    (function() {
+      // GCJ-02 coordinates for the project
+      var lat = 22.439100;
+      var lng = 114.059835;
+
+      // Initialize the map
+      var map = new qq.maps.Map(document.getElementById('container'), {
+        center: new qq.maps.LatLng(lat, lng),
+        zoom: 14,
+        mapStyleId: 'style1',
+      });
+
+      // Marker icon (green pin matching the theme)
+      var anchor = new qq.maps.Point(12, 46);
+      var size = new qq.maps.Size(36, 46);
+      var markerIcon = new qq.maps.MarkerImage(
+        'https://mapapi.qq.com/web/mapComponents/geolocationmarker/v/i/image/nd.svg',
+        size, anchor
+      );
+
+      var marker = new qq.maps.Marker({
+        position: new qq.maps.LatLng(lat, lng),
+        map: map,
+        icon: markerIcon,
+        title: '芊御 GARDEN REGENCY',
+      });
+
+      // Info window
+      var info = new qq.maps.InfoWindow({
+        map: map,
+      });
+      info.open();
+      info.setContent('<div style="font-family:system-ui;padding:8px 12px;font-size:13px;font-weight:600;color:#07120a;">芊御 GARDEN REGENCY<br><span style="font-weight:400;font-size:11px;color:#666;">元朗錦田北映河路1A號</span></div>');
+      info.setPosition(new qq.maps.LatLng(lat, lng));
+
+      // Scale control
+      var scaleControl = new qq.maps.ScaleControl({ map: map });
+      map.controls.push(scaleControl);
+    })();
+  </script>
+</body>
+</html>

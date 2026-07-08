@@ -73,8 +73,8 @@ const gardenRegency = {
       },
       {
         value: '48',
-        label: '項Club Regency設施',
-        labelEn: 'Club Regency Facilities',
+        label: '項會所設施',
+        labelEn: 'Club Facilities',
         sub: '逾10.6萬平方呎園林及會所',
         subEn: 'Over 106K sq ft Garden & Club',
         detail: '33米園林泳池、健身室、宴會廳等',

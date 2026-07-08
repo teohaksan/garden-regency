@@ -30,7 +30,7 @@ export const zhCN = {
       detail: '极致空间感，营造宽敞居住体验',
     },
     facilities: {
-      label: '项Club Regency设施',
+      label: '项会所设施',
       sub: '逾10.6万平方呎园林及会所',
       detail: '33米园林泳池、健身室、宴会厅等',
     },

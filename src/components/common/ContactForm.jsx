@@ -311,11 +311,14 @@ export default function ContactForm({
                     </p>
                     <div className="flex gap-3">
                       <button
-                        onClick={() => setQrModalOpen(true)}
+                        onClick={() => {
+                          handleCopyWeChat()
+                          setQrModalOpen(true)
+                        }}
                         className="flex-1 px-3 py-2.5 text-xs font-semibold rounded-lg transition-all duration-300 hover:opacity-85 font-[family-name:var(--font-body)]"
-                        style={{ backgroundColor: '#07C160', color: '#fff' }}
+                        style={{ backgroundColor: copied ? '#07C160' : '#C8A96E', color: '#fff' }}
                       >
-                        { t('查看二維碼') }
+                        {copied ? t('✓ 已複製') : t('複製微信 ID')}
                       </button>
                       <button
                         onClick={() => setQrModalOpen(true)}
@@ -394,21 +397,21 @@ export default function ContactForm({
               </svg>
             </div>
             
-            <p className="text-xs mb-4 leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
-              { t('打開微信右上角「+」→「加入朋友」') }
-            </p>
-            
             {/* Copy WeChat ID button */}
             <button
               onClick={handleModalCopyWeChat}
-              className="mx-auto w-40 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 hover:opacity-85 mb-6"
+              className="mx-auto w-40 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 hover:opacity-85 mb-4"
               style={{
                 backgroundColor: modalCopied ? '#07C160' : '#C8A96E',
                 color: '#fff',
               }}
             >
-              {modalCopied ? t('✓ 已複製') : t('複製微信 ID')}
+              {modalCopied ? '✓ 已複製' : '複製微信 ID'}
             </button>
+
+            <p className="text-xs mb-6 leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              { t('打開微信右上角「+」→「加入朋友」→ 搜尋 ID') }
+            </p>
             
             {weChatQRBig ? (
               <img

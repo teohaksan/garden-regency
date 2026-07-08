@@ -8,8 +8,6 @@ export default function FooterSection({
 }) {
   const { t } = useLanguage()
 
-  const artNote = t('電腦模擬效果圖僅供參考 | Artist\'s impression for reference only')
-
   return (
     <footer id="footer" className="relative py-16 lg:py-20 px-6 lg:px-12"
             style={{ backgroundColor: 'var(--color-bg)', borderTop: '1px solid var(--color-border)' }}>
@@ -48,9 +46,6 @@ export default function FooterSection({
                 </>
               </div>
 
-              <p className="text-center italic font-[family-name:var(--font-body)] pt-4">
-                {artNote}
-              </p>
             </div>
           )}
         </ScrollAnimation>

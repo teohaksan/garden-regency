@@ -311,10 +311,7 @@ export default function ContactForm({
                     </p>
                     <div className="flex gap-3">
                       <button
-                        onClick={() => {
-                          handleCopyWeChat()
-                          setQrModalOpen(true)
-                        }}
+                        onClick={handleCopyWeChat}
                         className="flex-1 px-3 py-2.5 text-xs font-semibold rounded-lg transition-all duration-300 hover:opacity-85 font-[family-name:var(--font-body)]"
                         style={{ backgroundColor: copied ? '#07C160' : '#C8A96E', color: '#fff' }}
                       >

@@ -110,7 +110,7 @@ export default function FloatingActions({
             {/* Copy WeChat ID button */}
             <button
               onClick={handleCopyWeChat}
-              className="w-40 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 hover:opacity-85"
+              className="mx-auto block w-40 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 hover:opacity-85 mb-4"
               style={{
                 backgroundColor: copied ? '#07C160' : '#C8A96E',
                 color: '#fff',
@@ -119,7 +119,7 @@ export default function FloatingActions({
               {copied ? '✓ 已複製' : '複製微信 ID'}
             </button>
 
-            <p className="text-xs mb-5" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            <p className="text-xs mb-5 leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
               打開微信右上角「+」→「加入朋友」→ 搜尋 ID
             </p>
 

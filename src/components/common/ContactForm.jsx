@@ -129,14 +129,14 @@ export default function ContactForm({
         <ScrollAnimation>
           <div className="text-center mb-12">
             {title && (
-              <h2 className="text-3xl lg:text-5xl font-semibold tracking-[0.05em] font-[family-name:var(--font-display)]"
-                  style={{ color: 'var(--color-text)' }}>
+              <h2 className="text-3xl lg:text-5xl font-semibold tracking-[0.05em] font-[family-name:var(--font-display)] leading-none"
+                  style={{ color: 'var(--color-text)', minHeight: '1.2em' }}>
                 {t(title)}
               </h2>
             )}
             {subtitle && (
-              <p className="mt-3 text-sm tracking-[0.15em] font-[family-name:var(--font-body)]"
-                 style={{ color: 'var(--color-text-secondary)' }}>
+              <p className="mt-3 text-sm tracking-[0.15em] font-[family-name:var(--font-body)] leading-snug"
+                 style={{ color: 'var(--color-text-secondary)', minHeight: '1.5em' }}>
                 {t(subtitle)}
               </p>
             )}
@@ -145,8 +145,8 @@ export default function ContactForm({
 
         {/* Trust tagline */}
         <ScrollAnimation>
-          <p className="text-center mb-10 text-sm font-[family-name:var(--font-body)]"
-             style={{ color: 'var(--color-text-secondary)' }}>
+          <p className="text-center mb-10 text-sm font-[family-name:var(--font-body)] leading-snug"
+             style={{ color: 'var(--color-text-secondary)', minHeight: '1.5em' }}>
             { t('專業獨立分析，助您判斷 Garden Regency 芊御是否適合您') }
           </p>
         </ScrollAnimation>

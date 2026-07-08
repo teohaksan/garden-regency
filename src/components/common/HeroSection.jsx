@@ -61,6 +61,15 @@ export default function HeroSection({
         {isDark && (
           <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0,0,0,0.2)' }}></div>
         )}
+        <p className="absolute bottom-10 right-6 z-10 text-[10px] text-white/15 font-[family-name:var(--font-body)]">
+          <a
+            href="#footer"
+            className="underline underline-offset-2 hover:opacity-80 transition-opacity"
+            title={disclaimerText}
+          >
+            {disclaimerLabel}
+          </a>
+        </p>
         <p className="absolute bottom-6 right-6 z-10 text-[10px] text-white/15 italic font-[family-name:var(--font-body)]">
           {artNoteLabel}
         </p>
@@ -225,22 +234,6 @@ export default function HeroSection({
             </button>
           </ScrollAnimation>
         )}
-      </div>
-
-      {/* Non-official disclaimer - small, subtle text, above scroll indicator */}
-      <div className="absolute bottom-8 z-10" style={{ left: '50%', transform: 'translateX(-50%)', marginBottom: '48px' }}>
-        <p
-          className="text-[10px] md:text-[11px] tracking-wider font-[family-name:var(--font-body)]"
-          style={{ color: 'var(--color-text-muted)' }}
-        >
-          <a
-            href="#footer"
-            className="underline underline-offset-2 hover:opacity-80 transition-opacity"
-            title={disclaimerText}
-          >
-            {disclaimerLabel}
-          </a>
-        </p>
       </div>
 
       {/* Scroll indicator */}

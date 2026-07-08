@@ -109,27 +109,9 @@ export default function HeroSection({
 
         {/* Decorative divider */}
         <div
-          className="w-16 h-[1px] mt-8 mb-4 scale-x-0 animate-[scaleX_0.8s_0.8s_ease-out_forwards] origin-center"
+          className="w-16 h-[1px] mt-8 mb-6 scale-x-0 animate-[scaleX_0.8s_0.8s_ease-out_forwards] origin-center"
           style={{ backgroundColor: 'var(--color-accent)' }}
         ></div>
-
-        {/* Non-official disclaimer - small, subtle text */}
-        <ScrollAnimation delay={0.28}>
-          <div className="mb-6">
-            <p
-              className="text-[11px] md:text-xs tracking-wider font-[family-name:var(--font-body)]"
-              style={{ color: 'var(--color-text-muted)' }}
-            >
-              <a
-                href="#footer"
-                className="underline underline-offset-2 hover:opacity-80 transition-opacity"
-                title={disclaimerText}
-              >
-                {disclaimerLabel}
-              </a>
-            </p>
-          </div>
-        </ScrollAnimation>
 
         {/* Address (middle of hero, below name) */}
         {address && (
@@ -243,6 +225,22 @@ export default function HeroSection({
             </button>
           </ScrollAnimation>
         )}
+      </div>
+
+      {/* Non-official disclaimer - small, subtle text, above scroll indicator */}
+      <div className="absolute bottom-8 z-10" style={{ left: '50%', transform: 'translateX(-50%)', marginBottom: '48px' }}>
+        <p
+          className="text-[10px] md:text-[11px] tracking-wider font-[family-name:var(--font-body)]"
+          style={{ color: 'var(--color-text-muted)' }}
+        >
+          <a
+            href="#footer"
+            className="underline underline-offset-2 hover:opacity-80 transition-opacity"
+            title={disclaimerText}
+          >
+            {disclaimerLabel}
+          </a>
+        </p>
       </div>
 
       {/* Scroll indicator */}

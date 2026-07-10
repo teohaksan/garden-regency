@@ -18,8 +18,8 @@ const gardenRegency = {
     items: [
       { id: 'overview', label: '項目概覽', labelEn: 'Overview' },
       { id: 'pillars', label: '建築特色', labelEn: 'Architecture' },
-      { id: 'highlights', label: '項目亮點', labelEn: 'Highlights' },
-      { id: 'units', label: '單位類型', labelEn: 'Units' },
+      { id: 'club-regency', label: '會所設施', labelEn: 'Club Facilities' },
+      { id: 'floorplans', label: '樓層平面圖', labelEn: 'Floor Plans' },
       { id: 'timeline', label: '項目進程', labelEn: 'Timeline' },
       { id: 'location', label: '位置交通', labelEn: 'Location' },
       { id: 'contact', label: '聯絡我們', labelEn: 'Contact' },

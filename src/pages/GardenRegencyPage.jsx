@@ -36,25 +36,6 @@ export default function GardenRegencyPage({ data }) {
       <Navbar logo={brand.logo} navItems={nav.items} onCTAClick={handleCTAClick} />
 
       <section id="hero" className="relative">
-        {/* Floral decorative overlays (behind content, above background) */}
-        <div className="hero-floral-overlay" aria-hidden="true" />
-        {/* Right side flower decoration - LCP element (above-the-fold, eagerly loaded) */}
-        {/* Note: Using direct <img> instead of <picture> for LCP discoverability */}
-        <div
-          className="hidden md:block absolute right-0 top-1/3 z-[1] pointer-events-none"
-          aria-hidden="true"
-        >
-          <img
-            src="/flower-r-400.webp"
-            alt=""
-            width="283"
-            height="423"
-            className="w-auto h-[45vh] opacity-90 animate-float"
-            fetchpriority="high"
-            decoding="async"
-          />
-        </div>
-
         <HeroSection {...hero} onCTAClick={handleCTAClick} />
       </section>
 

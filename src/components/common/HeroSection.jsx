@@ -23,7 +23,8 @@ export default function HeroSection({
     document.documentElement.classList.contains('gold') ||
     document.documentElement.classList.contains('teal') ||
     document.documentElement.classList.contains('emerald')
-  const overlayColor = isDark ? 'from-black/40 via-black/10 to-black' : 'bg-black/55'
+  // Strong overlay for hero image legibility (new PDF render is busy)
+  const overlayColor = isDark ? 'from-black/80 via-black/60 to-black/90' : 'from-black/80 via-black/50 to-black/80'
 
   // Resolve display names (back-compat: fall back to title/subtitle)
   const enName = titleEn || title || ''
@@ -58,9 +59,8 @@ export default function HeroSection({
           <div className="w-full h-full" style={{ backgroundColor: 'var(--color-bg-alt)' }} />
         )}
         <div className={`absolute inset-0 bg-gradient-to-b ${overlayColor}`}></div>
-        {isDark && (
-          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0,0,0,0.2)' }}></div>
-        )}
+        {/* Extra darkening layer for image legibility */}
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0,0,0,0.35)' }}></div>
         <p className="absolute bottom-10 right-6 z-10 text-[10px] text-white/15 font-[family-name:var(--font-body)]">
           <a
             href="#footer"
@@ -75,13 +75,27 @@ export default function HeroSection({
         </p>
       </div>
 
-      {/* Centered content */}
+      {/* Centered content with backdrop for image legibility */}
       <div className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto px-6 py-32">
+        {/* Subtle backdrop card behind text for improved legibility */}
+        <div
+          className="absolute inset-0 -z-10 mx-auto rounded-3xl"
+          style={{
+            background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 60%)',
+            maxWidth: '1100px',
+            top: '20%',
+            bottom: '20%',
+          }}
+          aria-hidden="true"
+        ></div>
         {tagline && (
           <ScrollAnimation delay={0.1}>
             <p
               className="text-xs lg:text-sm tracking-[0.3em] font-[family-name:var(--font-body)] mb-6"
-              style={{ color: 'var(--color-accent)' }}
+              style={{
+                color: 'var(--color-accent)',
+                textShadow: '0 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.5)',
+              }}
             >
               {t(tagline)}
             </p>
@@ -95,8 +109,8 @@ export default function HeroSection({
               <h1
                 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-none tracking-[0.12em] font-[family-name:var(--font-display)]"
                 style={{
-                  color: 'var(--color-text)',
-                  textShadow: '0 4px 30px rgba(0,0,0,0.5)',
+                  color: '#ffffff',
+                  textShadow: '0 4px 30px rgba(0,0,0,0.95), 0 2px 8px rgba(0,0,0,0.8), 0 0 60px rgba(0,0,0,0.6)',
                 }}
               >
                 {t(cnName)}
@@ -107,7 +121,7 @@ export default function HeroSection({
                 className="mt-3 text-2xl md:text-3xl lg:text-4xl tracking-[0.32em] uppercase font-light font-[family-name:var(--font-display)]"
                 style={{
                   color: 'var(--color-accent-light)',
-                  textShadow: '0 2px 12px rgba(0,0,0,0.4)',
+                  textShadow: '0 2px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.6)',
                 }}
               >
                 {enName}
@@ -134,14 +148,17 @@ export default function HeroSection({
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.8"
-                  style={{ color: 'var(--color-accent)' }}
+                  style={{ color: 'var(--color-accent)', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8))' }}
                 >
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
                 <p
                   className="text-sm md:text-base tracking-[0.15em] font-[family-name:var(--font-body)]"
-                  style={{ color: isDark ? 'var(--color-text-secondary)' : 'rgba(255,255,255,0.9)' }}
+                  style={{
+                    color: '#ffffff',
+                    textShadow: '0 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.5)',
+                  }}
                 >
                   {t(address)}
                 </p>
@@ -149,7 +166,10 @@ export default function HeroSection({
               {addressNote && (
                 <p
                   className="text-[11px] md:text-xs tracking-[0.2em] font-[family-name:var(--font-body)] italic"
-                  style={{ color: 'var(--color-text-muted)' }}
+                  style={{
+                    color: 'rgba(255,255,255,0.8)',
+                    textShadow: '0 2px 6px rgba(0,0,0,0.8)',
+                  }}
                 >
                   {t(addressNote)}
                 </p>
@@ -162,7 +182,10 @@ export default function HeroSection({
           <ScrollAnimation delay={0.4}>
             <p
               className="mt-8 text-sm md:text-base leading-relaxed max-w-2xl"
-              style={{ color: isDark ? 'var(--color-text-secondary)' : 'rgba(255,255,255,0.7)' }}
+              style={{
+                color: '#ffffff',
+                textShadow: '0 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.5)',
+              }}
             >
               {t(description)}
             </p>

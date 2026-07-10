@@ -15,9 +15,9 @@ export default function LocationMap({
   // null = auto-detect from language, 'google' = force Google, 'amap' = force AMAP
   const [mapOverride, setMapOverride] = useState(null)
 
-  // Determine which map to show
+  // Determine which map to show — only use AMAP if URL is available
   const useAmap =
-    mapOverride === 'amap' || (mapOverride === null && lang === 'zh-CN')
+    !!amapEmbedUrl && (mapOverride === 'amap' || (mapOverride === null && lang === 'zh-CN'))
 
   const handleToggle = useCallback((provider) => {
     setMapOverride((prev) => (prev === provider ? null : provider))

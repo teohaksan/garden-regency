@@ -8,7 +8,7 @@ import FloatingActions from '../components/common/FloatingActions'
 import FooterSection from '../components/common/FooterSection'
 
 // Optional components
-import HighlightsGrid from '../components/optional/HighlightsGrid'
+import ClubRegencySection from '../components/optional/ClubRegencySection'
 import PillarsSection from '../components/optional/PillarsSection'
 import TimelineSection from '../components/optional/TimelineSection'
 import FloorplanSection from '../components/optional/FloorplanSection'
@@ -70,7 +70,7 @@ export default function GardenRegencyPage({ data }) {
 
       {pillars && <PillarsSection {...pillars} />}
 
-      {highlights && <HighlightsGrid {...highlights} />}
+      {highlights && <ClubRegencySection {...highlights} />}
 
       {/* UnitTable hidden - replaced by FloorplanSection with real floor plan images */}
       {/* {units && <UnitTable {...units} />} */}

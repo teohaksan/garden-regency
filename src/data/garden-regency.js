@@ -95,13 +95,13 @@ const gardenRegency = {
 
   // Step 6: 項目亮點 (Selling Points — expanded from PDF & news)
   highlights: {
-    tagline: 'Why Garden Regency',
-    title: '項目亮點',
-    titleEn: 'Highlights',
+    tagline: 'CLUB REGENCY',
+    title: 'Club Regency 會所設施',
+    subtitle: '48 項頂級配套',
     description:
-      '由新鴻基地產傾心打造的低密度花園豪宅，承載「LIVE LUXE GREEN」奢綠生活美學，從園林藝術、智能家居到完善配套，全方位構建新世代理想居所。',
+      '逾 10.6 萬平方呎園林及會所空間，Club Regency 匠心打造 48 項世界級設施，涵蓋園林泳池、健身中心、智能生活休閒配套，為您呈獻「LIVE LUXE GREEN」奢綠生活。',
     descriptionEn:
-      'A low-density garden residence developed by Sun Hung Kai Properties, carrying the "LIVE LUXE GREEN" luxury green living philosophy. From garden art and smart home to comprehensive facilities, creating your ideal home.',
+      'Over 106,000 sq ft of landscaped gardens and club facilities. Club Regency features 48 world-class amenities including garden pool, fitness centre and smart living amenities, delivering the "LIVE LUXE GREEN" luxury lifestyle.',
     items: [
       // Garden Art (4 cards)
       {

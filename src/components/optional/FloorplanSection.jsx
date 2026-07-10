@@ -1,188 +1,198 @@
 import { useState } from 'react'
 import ScrollAnimation from '../common/ScrollAnimation'
 
-// Elegant SVG floorplan diagrams — no external image assets required.
-const ROOM = 'var(--color-surface)'
-const STROKE = 'var(--color-accent)'
-function FloorplanDiagram({ layout, title }) {
-  const rooms = PLANS[layout] || PLANS['1bed']
-  return (
-    <div className="w-full rounded-xl shadow-lg overflow-hidden border"
-         style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg-alt)' }}>
-      <svg viewBox="0 0 400 300" className="w-full h-auto block" role="img" aria-label={`${title} 戶型示意圖`}>
-        <rect x="8" y="8" width="384" height="284" rx="6" fill="none" stroke={STROKE} strokeWidth="2" opacity="0.5" />
-        {rooms.map((r, i) => (
-          <g key={i}>
-            <rect x={r.x} y={r.y} width={r.w} height={r.h} rx="3" fill={ROOM} stroke={STROKE} strokeWidth="1.2" opacity="0.85" />
-            <text x={r.x + r.w / 2} y={r.y + r.h / 2 + 4} textAnchor="middle"
-                  fontSize="11" fill="var(--color-text-secondary)" fontFamily="var(--font-body)">
-              {r.label}
-            </text>
-          </g>
-        ))}
-        <text x="200" y="292" textAnchor="middle" fontSize="9" fill="var(--color-text-muted)" fontFamily="var(--font-body)">
-          示意圖 · 非實際比例
-        </text>
-      </svg>
-    </div>
-  )
-}
-
-const PLANS = {
-  '1bed': [
-    { x: 20, y: 20, w: 200, h: 120, label: '客廳 / 飯廳' },
-    { x: 232, y: 20, w: 148, h: 70, label: '睡房' },
-    { x: 232, y: 100, w: 70, h: 70, label: '廚房' },
-    { x: 310, y: 100, w: 70, h: 70, label: '浴室' },
-    { x: 20, y: 154, w: 360, h: 60, label: '開放式廚房 / 玄關' },
-    { x: 20, y: 226, w: 360, h: 54, label: '露台' },
-  ],
-  '2bed': [
-    { x: 20, y: 20, w: 200, h: 120, label: '客廳 / 飯廳' },
-    { x: 232, y: 20, w: 70, h: 70, label: '睡房' },
-    { x: 310, y: 20, w: 70, h: 70, label: '睡房' },
-    { x: 232, y: 100, w: 148, h: 70, label: '開放式廚房' },
-    { x: 20, y: 154, w: 70, h: 70, label: '浴室' },
-    { x: 100, y: 154, w: 280, h: 70, label: '玄關 / 走廊' },
-    { x: 20, y: 234, w: 360, h: 46, label: '露台' },
-  ],
-  '3bed': [
-    { x: 20, y: 20, w: 200, h: 110, label: '客廳 / 飯廳' },
-    { x: 232, y: 20, w: 70, h: 70, label: '睡房' },
-    { x: 310, y: 20, w: 70, h: 70, label: '睡房' },
-    { x: 232, y: 100, w: 148, h: 64, label: '睡房' },
-    { x: 20, y: 142, w: 150, h: 64, label: '開放式廚房' },
-    { x: 180, y: 142, w: 80, h: 64, label: '浴室' },
-    { x: 270, y: 142, w: 110, h: 64, label: '玄關' },
-    { x: 20, y: 218, w: 360, h: 54, label: '露台' },
-  ],
-  '3bedE': [
-    { x: 20, y: 20, w: 200, h: 110, label: '客廳 / 飯廳' },
-    { x: 232, y: 20, w: 70, h: 70, label: '睡房' },
-    { x: 310, y: 20, w: 70, h: 70, label: '主人套房' },
-    { x: 232, y: 100, w: 148, h: 64, label: '睡房' },
-    { x: 20, y: 142, w: 150, h: 64, label: '開放式廚房' },
-    { x: 180, y: 142, w: 80, h: 64, label: '浴室' },
-    { x: 270, y: 142, w: 110, h: 64, label: '衣帽間' },
-    { x: 20, y: 218, w: 360, h: 54, label: '露台' },
-  ],
-}
-
+/**
+ * FloorplanSection — Tower-based floor plan viewer.
+ * Shows standard floor plan for each tower with unit type color tags.
+ */
 export default function FloorplanSection({
-  title = '戶型圖',
-  subtitle,
-  items = [],
+  title = '樓層平面圖',
+  subtitle = 'FLOOR PLANS',
+  description = '按座數查看標準層平面圖',
+  towers = [],
 }) {
-  const [active, setActive] = useState(0)
-  const current = items[active]
+  const [activeTower, setActiveTower] = useState(0)
+  const current = towers[activeTower]
+
+  if (!current) return null
 
   return (
-    <section id="floorplans" className="relative py-24 lg:py-32 px-6 lg:px-12 scroll-mt-24" style={{ backgroundColor: 'var(--color-bg-alt)' }}>
+    <section
+      id="floorplans"
+      className="relative py-24 lg:py-32 px-6 lg:px-12 scroll-mt-24"
+      style={{ backgroundColor: 'var(--color-bg)' }}
+    >
       <div className="mx-auto max-w-[1440px]">
         <ScrollAnimation>
-          <div className="max-w-3xl mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-12">
             {subtitle && (
-              <p className="text-xs tracking-[0.3em] uppercase font-[family-name:var(--font-body)] mb-3"
-                 style={{ color: 'var(--color-accent)' }}>
+              <p
+                className="text-xs tracking-[0.3em] uppercase font-[family-name:var(--font-body)] mb-3"
+                style={{ color: 'var(--color-accent)' }}
+              >
                 {subtitle}
               </p>
             )}
-            <h2 className="text-3xl lg:text-5xl font-semibold tracking-[0.05em] font-[family-name:var(--font-display)]"
-                style={{ color: 'var(--color-text)' }}>
+            <h2
+              className="text-3xl lg:text-5xl font-semibold tracking-[0.05em] font-[family-name:var(--font-display)]"
+              style={{ color: 'var(--color-text)' }}
+            >
               {title}
             </h2>
+            {description && (
+              <p
+                className="mt-3 text-sm lg:text-base font-[family-name:var(--font-body)]"
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                {description}
+              </p>
+            )}
+            <div
+              className="mt-6 w-12 h-[1px] mx-auto"
+              style={{ backgroundColor: 'var(--color-accent)' }}
+            ></div>
           </div>
         </ScrollAnimation>
 
-        {/* Tabs */}
-        {items.length > 1 && (
-          <div className="flex flex-wrap gap-2 mb-10 border-b pb-4"
-               style={{ borderColor: 'var(--color-border)' }}>
-            {items.map((item, i) => (
+        {/* Tower Tabs */}
+        <ScrollAnimation delay={0.1}>
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            {towers.map((tower, i) => (
               <button
                 key={i}
-                onClick={() => setActive(i)}
-                className={`px-5 py-2 text-xs tracking-[0.15em] transition-all duration-300 font-[family-name:var(--font-body)] ${
-                  active === i
-                    ? 'font-semibold'
-                    : 'opacity-50 hover:opacity-80'
+                onClick={() => setActiveTower(i)}
+                className={`px-6 py-3 text-sm tracking-[0.1em] rounded-full font-[family-name:var(--font-body)] transition-all duration-300 ${
+                  activeTower === i
+                    ? 'font-semibold shadow-lg'
+                    : 'opacity-60 hover:opacity-90'
                 }`}
                 style={{
-                  color: active === i ? 'var(--color-accent)' : 'var(--color-text-secondary)',
-                  borderBottom: active === i ? `2px solid var(--color-accent)` : '2px solid transparent',
-                  marginBottom: '-17px',
+                  backgroundColor: activeTower ? 'var(--color-surface)' : 'var(--color-accent)',
+                  color: activeTower ? 'var(--color-text-secondary)' : '#000',
+                  border: `1px solid ${
+                    activeTower === i ? 'var(--color-accent)' : 'var(--color-border)'
+                  }`,
+                }}
+                onMouseEnter={(e) => {
+                  if (activeTower !== i) e.currentTarget.style.borderColor = 'var(--color-accent)'
+                }}
+                onMouseLeave={(e) => {
+                  if (activeTower !== i) e.currentTarget.style.borderColor = 'var(--color-border)'
                 }}
               >
-                {item.name}
+                <span className="mr-2">🏢</span>
+                {tower.name}
               </button>
             ))}
           </div>
-        )}
+        </ScrollAnimation>
 
-        {/* Content */}
-        {current && (
-          <div className="grid md:grid-cols-2 gap-10 items-start">
-            <ScrollAnimation>
+        {/* Tower Content */}
+        <ScrollAnimation delay={0.2}>
+          <div
+            className="rounded-2xl p-6 lg:p-8 border"
+            style={{
+              backgroundColor: 'var(--color-surface)',
+              borderColor: 'var(--color-border)',
+            }}
+          >
+            {/* Tower Header */}
+            <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
+              <div>
+                <h3
+                  className="text-xl lg:text-2xl font-semibold tracking-[0.05em] font-[family-name:var(--font-display)]"
+                  style={{ color: 'var(--color-text)' }}
+                >
+                  {current.name}標準層平面圖
+                </h3>
+                <p
+                  className="mt-1 text-sm font-[family-name:var(--font-body)]"
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
+                  {current.floorRange} · {current.unitsPerFloor}
+                </p>
+              </div>
+
+              {/* Unit Type Color Tags */}
+              {current.unitTypes && current.unitTypes.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {current.unitTypes.map((ut, idx) => (
+                    <span
+                      key={idx}
+                      className="px-3 py-1.5 text-xs rounded-full font-[family-name:var(--font-body)] font-medium"
+                      style={{
+                        backgroundColor: `${ut.color}20`,
+                        color: ut.color,
+                      }}
+                    >
+                      {ut.label}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Floor Plan Image */}
+            <div
+              className="rounded-xl overflow-hidden border"
+              style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-bg-alt)' }}
+            >
               {current.image ? (
-                <img src={current.image} alt={current.name} className="w-full rounded-xl shadow-lg" />
-              ) : current.layout ? (
-                <FloorplanDiagram layout={current.layout} title={current.name} />
+                <picture>
+                  <source media="(max-width: 640px)" srcSet={current.image.mobile} />
+                  <source media="(max-width: 1024px)" srcSet={current.image.medium} />
+                  <img
+                    src={current.image.large}
+                    alt={`${current.name}標準層平面圖`}
+                    className="w-full h-auto block"
+                    loading="lazy"
+                    width={1600}
+                    height={1067}
+                  />
+                </picture>
               ) : (
-                <div className="w-full aspect-[4/3] rounded-xl flex items-center justify-center"
-                     style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
-                  <p className="text-xs" style={{ color: 'var(--color-text-muted)' }}>
-                    戶型圖片位置
+                <div className="aspect-[3/2] flex items-center justify-center">
+                  <p
+                    className="text-sm"
+                    style={{ color: 'var(--color-text-muted)' }}
+                  >
+                    平面圖將於售樓說明書公佈後上載
                   </p>
                 </div>
               )}
-            </ScrollAnimation>
-            <ScrollAnimation delay={0.2}>
-              <div>
-                <h3 className="text-xl lg:text-2xl font-semibold tracking-[0.05em] font-[family-name:var(--font-display)]"
-                    style={{ color: 'var(--color-text)' }}>
-                  {current.name}
-                </h3>
-                <div className="mt-4 space-y-3 text-sm font-[family-name:var(--font-body)]"
-                     style={{ color: 'var(--color-text-secondary)' }}>
-                  {current.area && (
-                    <div className="flex items-center justify-between border-b pb-2"
-                         style={{ borderColor: 'var(--color-border)' }}>
-                      <span>實用面積</span>
-                      <span style={{ color: 'var(--color-text)' }} className="font-medium">{current.area}</span>
-                    </div>
-                  )}
-                  {current.bedrooms !== undefined && (
-                    <div className="flex items-center justify-between border-b pb-2"
-                         style={{ borderColor: 'var(--color-border)' }}>
-                      <span>睡房</span>
-                      <span style={{ color: 'var(--color-text)' }} className="font-medium">{current.bedrooms} 房</span>
-                    </div>
-                  )}
-                  {current.bathrooms !== undefined && (
-                    <div className="flex items-center justify-between border-b pb-2"
-                         style={{ borderColor: 'var(--color-border)' }}>
-                      <span>浴室</span>
-                      <span style={{ color: 'var(--color-text)' }} className="font-medium">{current.bathrooms} 廁</span>
-                    </div>
-                  )}
-                  {current.floor && (
-                    <div className="flex items-center justify-between border-b pb-2"
-                         style={{ borderColor: 'var(--color-border)' }}>
-                      <span>樓層</span>
-                      <span style={{ color: 'var(--color-text)' }} className="font-medium">{current.floor}</span>
-                    </div>
-                  )}
-                </div>
-                {current.description && (
-                  <p className="mt-4 text-sm leading-relaxed font-[family-name:var(--font-body)]"
-                     style={{ color: 'var(--color-text-muted)' }}>
-                    {current.description}
-                  </p>
-                )}
+            </div>
+
+            {/* Floor Plan Notes */}
+            {current.notes && (
+              <div
+                className="mt-6 p-4 rounded-lg"
+                style={{
+                  backgroundColor: 'var(--color-bg-alt)',
+                  borderLeft: `3px solid var(--color-accent)`,
+                }}
+              >
+                <p
+                  className="text-xs lg:text-sm leading-relaxed font-[family-name:var(--font-body)]"
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
+                  {current.notes}
+                </p>
               </div>
-            </ScrollAnimation>
+            )}
           </div>
-        )}
+        </ScrollAnimation>
+
+        {/* Disclaimer */}
+        <p
+          className="mt-6 text-center text-[11px] lg:text-xs font-[family-name:var(--font-body)] italic"
+          style={{ color: 'var(--color-text-muted)' }}
+        >
+          平面圖僅供參考，一切資料以發展商最後公布之售樓說明書為準。
+          <br />
+          <span className="text-[10px] lg:text-[11px] opacity-70">
+            電腦模擬效果圖，僅供參考 | Artist's impression for reference only
+          </span>
+        </p>
       </div>
     </section>
   )

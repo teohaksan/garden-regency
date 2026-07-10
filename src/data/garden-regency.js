@@ -36,7 +36,7 @@ const gardenRegency = {
     addressNote: '毗鄰爾巒',
     description:
       '元朗錦田北低密度花園豪宅，逾10.6萬平方呎園林及會所空間，48項奢華設施，3.5米特高樓底，締造寫意生活新境界。',
-    posterSrc: null,
+    posterSrc: '/hero-mockup.webp',
     stats: [
       { value: '566', label: '住宅單位', labelEn: 'Residential Units' },
       { value: '3', label: '住宅大樓', labelEn: 'Residential Towers' },
@@ -269,44 +269,63 @@ const gardenRegency = {
   // Floorplans
   floorplans: {
     tagline: '空間設計',
-    title: '戶型圖',
-    description: '戶型圖將於售樓說明書公佈後上載，敬請期待。',
-    items: [
+    title: '樓層平面圖',
+    description: '按座數查看標準層平面圖',
+    towers: [
       {
-        name: '一房單位',
-        image: null,
-        layout: '1bed',
-        area: '約 290 平方呎',
-        bedrooms: 1,
-        bathrooms: 1,
-        description: '開放式設計，適合單身貴族或投資收租。',
+        name: '第1座',
+        nameEn: 'Tower 1',
+        floorRange: '2/F – 17/F',
+        unitsPerFloor: '17 伙 / 層',
+        image: {
+          large: '/tower-1-12f-1600.webp',
+          medium: '/tower-1-12f-1000.webp',
+          mobile: '/tower-1-12f-600.webp',
+        },
+        unitTypes: [
+          { label: '1房 290呎', color: '#60A5FA' },
+          { label: '2房 359–413呎', color: '#FB923C' },
+          { label: '3房 498呎', color: '#4ADE80' },
+          { label: '3房+1 570呎', color: '#A78BFA' },
+        ],
+        notes:
+          '第1座標準層共 17 個單位，涵蓋 1 房至 3 房+1 套。18/F 為特色戶樓層，户型面積較大。',
       },
       {
-        name: '兩房單位',
-        image: null,
-        layout: '2bed',
-        area: '約 360 - 410 平方呎',
-        bedrooms: 2,
-        bathrooms: 1,
-        description: '主打戶型，客廳連開放式廚房，空間實用。',
+        name: '第2座',
+        nameEn: 'Tower 2',
+        floorRange: '2/F – 17/F',
+        unitsPerFloor: '12 伙 / 層',
+        image: {
+          large: '/tower-2-12f-1600.webp',
+          medium: '/tower-2-12f-1000.webp',
+          mobile: '/tower-2-12f-600.webp',
+        },
+        unitTypes: [
+          { label: '1房 289呎', color: '#60A5FA' },
+          { label: '2房 360–412呎', color: '#FB923C' },
+          { label: '3房 498呎', color: '#4ADE80' },
+          { label: '3房+1 568呎', color: '#A78BFA' },
+        ],
+        notes:
+          '第2座標準層共 12 個單位，主打 2 房戶型，適合不同家庭結構。18/F 為特色戶樓層。',
       },
       {
-        name: '三房單位',
-        image: null,
-        layout: '3bed',
-        area: '約 500 平方呎',
-        bedrooms: 3,
-        bathrooms: 1,
-        description: '寬敞三房，適合家庭入住。',
-      },
-      {
-        name: '三房一套',
-        image: null,
-        layout: '3bedE',
-        area: '約 570 平方呎',
-        bedrooms: 3,
-        bathrooms: 2,
-        description: '主人套房設計，私隱度提升。',
+        name: '第3座',
+        nameEn: 'Tower 3',
+        floorRange: '3/F – 12/F',
+        unitsPerFloor: '12 伙 / 層',
+        image: {
+          large: '/tower-3-12f-1600.webp',
+          medium: '/tower-3-12f-1000.webp',
+          mobile: '/tower-3-12f-600.webp',
+        },
+        unitTypes: [
+          { label: '1房 290呎', color: '#60A5FA' },
+          { label: '2房 360–413呎', color: '#FB923C' },
+        ],
+        notes:
+          '第3座標準層共 12 個單位，以 1 房及 2 房為主，佈局實用。',
       },
     ],
   },

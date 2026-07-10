@@ -72,9 +72,9 @@ export default function GardenRegencyPage({ data }) {
 
       {highlights && <HighlightsGrid {...highlights} />}
 
-      {units && <UnitTable {...units} />}
-      {/* Floorplan section hidden for now - SVG diagrams available when needed */}
-      {/* {floorplans && <FloorplanSection {...floorplans} />} */}
+      {/* UnitTable hidden - replaced by FloorplanSection with real floor plan images */}
+      {/* {units && <UnitTable {...units} />} */}
+      {floorplans && <FloorplanSection {...floorplans} />}
       {timeline && <TimelineSection {...timeline} stopSectionId="location" />}
       {location && <LocationMap {...location} />}
 

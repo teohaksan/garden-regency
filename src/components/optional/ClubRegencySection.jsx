@@ -3,16 +3,16 @@ import ScrollAnimation from '../common/ScrollAnimation'
 import { useLanguage } from '../../context/LanguageContext'
 
 const FACILITY_LABELS = [
-  '會所園林',      // 01
-  '泳池環境',      // 02
-  '健身設施',      // 03
-  '休閒空間',      // 04
-  '兒童設施',      // 05
+  '主入口大堂',    // 01 (was: 會所園林 — renamed to avoid duplication with section description)
+  '園林泳池',      // 02
+  '健身中心',      // 03
+  '休閒貴賓室',    // 04
+  '兒童遊樂場',    // 05
   '宴會廳',        // 06
-  '運動設施',      // 07
-  '智能科技',      // 08
+  '運動場地',      // 07
+  '智能生活',      // 08
   '空中花園',      // 09
-  '景觀設計',      // 10
+  '景觀平台',      // 10
 ]
 
 export default function ClubRegencySection({
@@ -122,45 +122,10 @@ export default function ClubRegencySection({
             </div>
           </ScrollAnimation>
 
-          {/* Bottom tagline */}
-          <ScrollAnimation delay={0.3}>
-            <div className="mt-14 text-center">
-              <div
-                className="inline-flex items-center gap-4 px-8 py-4 rounded-full border"
-                style={{
-                  backgroundColor: 'var(--color-surface)',
-                  borderColor: 'var(--color-border)',
-                }}
-              >
-                <span
-                  className="text-2xl"
-                  role="img"
-                  aria-hidden="true"
-                >
-                  🌿
-                </span>
-                <div className="text-left">
-                  <p
-                    className="text-sm font-semibold font-[family-name:var(--font-body)]"
-                    style={{ color: 'var(--color-text)' }}
-                  >
-                    Club Regency
-                  </p>
-                  <p
-                    className="text-xs font-[family-name:var(--font-body)]"
-                    style={{ color: 'var(--color-text-secondary)' }}
-                  >
-                    逾 10.6 萬平方呎園林及會所空間 · 48 項設施
-                  </p>
-                </div>
-              </div>
-            </div>
-          </ScrollAnimation>
-
           {/* Artist impression note */}
           <p
-            className="mt-8 text-center text-[11px] lg:text-xs italic font-[family-name:var(--font-body)]"
-            style={{ color: 'var(---color-text-muted)' }}
+            className="mt-10 text-center text-[11px] lg:text-xs italic font-[family-name:var(--font-body)]"
+            style={{ color: 'var(--color-text-muted)' }}
           >
             電腦模擬效果圖，僅供參考 | Artist's impression for reference only
           </p>

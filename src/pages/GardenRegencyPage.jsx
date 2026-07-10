@@ -40,6 +40,7 @@ export default function GardenRegencyPage({ data }) {
       </section>
 
       <StatsGrid
+        backgroundImage={overview.backgroundImage}
         tagline={overview.tagline}
         title={overview.title}
         description={overview.description}

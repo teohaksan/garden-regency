@@ -47,6 +47,7 @@ const gardenRegency = {
 
   // Step 5: Overview (key numbers)
   overview: {
+    backgroundImage: '/hero-mockup.webp',
     tagline: '自然與奢華的完美融合',
     title: '項目概覽',
     description:

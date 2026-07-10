@@ -159,12 +159,16 @@ export default function ContactForm({
                     style={{ color: 'var(--color-text)' }}>
                 {formFields.map((field) => (
                   <div key={field}>
-                    <label className="block text-xs tracking-[0.1em] mb-2 font-[family-name:var(--font-body)]"
-                           style={{ color: 'var(--color-text-secondary)' }}>
+                    <label 
+                      htmlFor={`form-${field}`}
+                      className="block text-xs tracking-[0.1em] mb-2 font-[family-name:var(--font-body)]"
+                      style={{ color: 'var(--color-text-secondary)' }}
+                    >
                       {fieldLabels[field]}
                     </label>
                     {field === 'unitType' ? (
                       <select
+                        id={`form-${field}`}
                         value={form[field] || ''}
                         onChange={(e) => setForm({ ...form, [field]: e.target.value })}
                         className="w-full px-4 py-3 text-sm outline-none border-b transition-colors duration-200 bg-transparent font-[family-name:var(--font-body)]"
@@ -183,6 +187,7 @@ export default function ContactForm({
                       </select>
                     ) : (
                       <input
+                        id={`form-${field}`}
                         type={field === 'phone' ? 'tel' : field === 'email' ? 'email' : 'text'}
                         value={form[field] || ''}
                         onChange={(e) => setForm({ ...form, [field]: e.target.value })}

@@ -38,18 +38,30 @@ export default function GardenRegencyPage({ data }) {
       <section id="hero" className="relative">
         {/* Floral decorative overlays (behind content, above background) */}
         <div className="hero-floral-overlay" aria-hidden="true" />
-        {/* Right side flower decoration (subtle, like official) */}
+        {/* Right side flower decoration - LCP element (above-the-fold, eagerly loaded) */}
         <div
           className="hidden md:block absolute right-0 top-1/3 z-[1] pointer-events-none"
           aria-hidden="true"
         >
           <picture>
-            <source srcSet="/flower-r.webp" type="image/webp" />
+            <source
+              media="(max-width: 768px)"
+              srcSet="/flower-r-mobile-300.webp"
+              type="image/webp"
+            />
+            <source
+              media="(min-width: 769px)"
+              srcSet="/flower-r-400.webp"
+              type="image/webp"
+            />
             <img
-              src="/flower-r.png"
+              src="/flower-r-400.webp"
               alt=""
+              width="283"
+              height="423"
               className="w-auto h-[45vh] opacity-90 animate-float"
-              loading="lazy"
+              fetchpriority="high"
+              decoding="async"
             />
           </picture>
         </div>

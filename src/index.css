@@ -125,7 +125,7 @@ body {
   right: -3%;
   width: 38%;
   height: 55%;
-  background-image: url('/flower-tr.webp'); /* WebP only — saves 412KB */
+  background-image: url('/flower-tr-400.webp'); /* WebP only — saves ~61KB */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: top right;
@@ -140,7 +140,7 @@ body {
   left: -2%;
   width: 32%;
   height: 45%;
-  background-image: url('/flower-bl.webp'); /* WebP only — saves 448KB */
+  background-image: url('/flower-bl-350.webp'); /* WebP only — saves ~83KB */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom left;

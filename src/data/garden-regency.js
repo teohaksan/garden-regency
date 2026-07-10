@@ -388,8 +388,8 @@ const gardenRegency = {
     phoneNumber: '+85291010532',
     showWeChat: true,
     weChatId: '家在香港520',
-    weChatQRSmall: '/wechat-qr-small.png',
-    weChatQRBig: '/wechat-qr-big.png',
+    weChatQRSmall: '/wechat-qr-small-96.webp',
+    weChatQRBig: '/wechat-qr-big-224.webp',
     formFields: ['name', 'phone', 'email', 'unitType'],
   },
 
@@ -400,8 +400,8 @@ const gardenRegency = {
     phoneNumber: '+85291010532',
     showWeChat: true,
     weChatId: '家在香港520',
-    weChatQRSmall: '/wechat-qr-small.png',
-    weChatQRBig: '/wechat-qr-big.png',
+    weChatQRSmall: '/wechat-qr-small-96.webp',
+    weChatQRBig: '/wechat-qr-big-224.webp',
   },
 }
 

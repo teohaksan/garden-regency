@@ -35,13 +35,16 @@ export default function LocationMap({
     >
       {/* Location wallpaper background */}
       <picture className="absolute inset-0 pointer-events-none">
-        <source media="(max-width: 768px)" srcSet="/location-wallpaper-mobile.webp" type="image/webp" />
-        <source srcSet="/location-wallpaper.webp" type="image/webp" />
+        <source media="(max-width: 768px)" srcSet="/location-wallpaper-mobile-400.webp" type="image/webp" />
+        <source media="(min-width: 769px)" srcSet="/location-wallpaper-960.webp" type="image/webp" />
         <img
-          src="/location-wallpaper.png"
+          src="/location-wallpaper-960.webp"
           alt=""
+          width="1920"
+          height="1080"
           className="w-full h-full object-cover opacity-10"
           loading="lazy"
+          decoding="async"
         />
       </picture>
 

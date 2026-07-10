@@ -23,7 +23,18 @@ export default function Navbar({ logo, navItems = [], onCTAClick, ctaLabel }) {
       <nav className="mx-auto max-w-[1440px] flex items-center justify-between px-6 py-4 lg:px-12" role="navigation" aria-label="主導航">
         <a href="#" className="flex items-center gap-3 group" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}>
           {logo ? (
-            <img src={logo} alt="Logo" className="h-8 md:h-10 w-auto" />
+            <picture>
+              <source srcSet="/logo-240.webp" type="image/webp" />
+              <img
+                src="/logo-240.webp"
+                alt="Garden Regency 芊御"
+                width="240"
+                height="70"
+                className="h-8 md:h-10 w-auto"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </picture>
           ) : (
             <span className="text-lg font-semibold tracking-wide font-[family-name:var(--font-display)]" style={{ color: 'var(--color-text)' }}>
               {navItems.length > 0 ? 'Project' : 'New Property'}

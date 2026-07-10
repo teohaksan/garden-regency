@@ -36,3 +36,4 @@ mockup-*.html
 
 # Backups
 *.tar.gz
+.screenshots/

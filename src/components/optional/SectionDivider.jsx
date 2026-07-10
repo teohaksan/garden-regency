@@ -38,7 +38,7 @@ export default function SectionDivider({ icon = 'leaf', label = '' }) {
         {label && (
           <span
             className="text-[10px] tracking-[0.4em] uppercase font-[family-name:var(--font-body)]"
-            style={{ color: 'var(--color-text-muted)' }}
+            style={{ color: 'var(--color-text-secondary)' }}
           >
             {label}
           </span>

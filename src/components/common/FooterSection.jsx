@@ -15,7 +15,7 @@ export default function FooterSection({
         <ScrollAnimation>
           {showDisclaimer && (
             <div className="space-y-6 text-[10px] leading-relaxed"
-                 style={{ color: 'var(--color-text-muted)' }}>
+                 style={{ color: 'var(--color-text-secondary)' }}>
               {/* PICS */}
               <div className="border-t pt-6" style={{ borderColor: 'var(--color-border)' }}>
                 <p className="font-semibold mb-2 font-[family-name:var(--font-body)]" style={{ color: 'var(--color-text-secondary)' }}>

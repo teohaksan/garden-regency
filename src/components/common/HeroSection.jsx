@@ -215,7 +215,7 @@ export default function HeroSection({
               className="mt-10 inline-flex items-center gap-2 px-10 py-4 text-sm tracking-wider font-semibold rounded-full transition-all duration-300 hover:shadow-2xl hover:scale-105"
               style={{
                 backgroundColor: 'var(--color-accent)',
-                color: isDark ? 'var(--color-bg)' : '#fff',
+                color: '#000', // Black text for maximum contrast on gold
               }}
             >
               {t(ctaLabel || '立即預約')}

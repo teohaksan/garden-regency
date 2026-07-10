@@ -51,7 +51,7 @@ export default function UnitTable({
             {description && (
               <p
                 className="mt-4 text-xs lg:text-sm leading-relaxed font-[family-name:var(--font-body)]"
-                style={{ color: 'var(--color-text-muted)' }}
+                style={{ color: 'var(--color-text-secondary)' }}
               >
                 {t(description)}
               </p>
@@ -131,7 +131,7 @@ export default function UnitTable({
         {(footer || footerEn) && (
           <p
             className="mt-6 text-center text-[11px] lg:text-xs font-[family-name:var(--font-body)] italic"
-            style={{ color: 'var(--color-text-muted)' }}
+            style={{ color: 'var(--color-text-secondary)' }}
           >
             {t(footer)}
           </p>

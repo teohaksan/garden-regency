@@ -125,19 +125,25 @@ export default function FloatingActions({
 
             {/* QR Code with black background */}
             {weChatQRBig ? (
-              <img
-                src={weChatQRBig}
-                alt="WeChat QR Code"
-                className="w-56 h-56 mx-auto object-contain block rounded-xl"
-                style={{ backgroundColor: '#000', padding: '8px' }}
-              />
+              <picture>
+                <source srcSet={weChatQRBig.replace(/\.png$/, '.webp')} type="image/webp" />
+                <img
+                  src={weChatQRBig}
+                  alt="WeChat QR Code"
+                  className="w-56 h-56 mx-auto object-contain block rounded-xl"
+                  style={{ backgroundColor: '#000', padding: '8px' }}
+                />
+              </picture>
             ) : weChatQRSmall ? (
-              <img
-                src={weChatQRSmall}
-                alt="WeChat QR Code"
-                className="w-56 h-56 mx-auto object-contain block rounded-xl"
-                style={{ backgroundColor: '#000', padding: '8px' }}
-              />
+              <picture>
+                <source srcSet={weChatQRSmall.replace(/\.png$/, '.webp')} type="image/webp" />
+                <img
+                  src={weChatQRSmall}
+                  alt="WeChat QR Code"
+                  className="w-56 h-56 mx-auto object-contain block rounded-xl"
+                  style={{ backgroundColor: '#000', padding: '8px' }}
+                />
+              </picture>
             ) : null}
           </div>
         </div>

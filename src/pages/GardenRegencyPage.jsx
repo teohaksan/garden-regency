@@ -43,11 +43,15 @@ export default function GardenRegencyPage({ data }) {
           className="hidden md:block absolute right-0 top-1/3 z-[1] pointer-events-none"
           aria-hidden="true"
         >
-          <img
-            src="/flower-r.png"
-            alt=""
-            className="w-auto h-[45vh] opacity-90 animate-float"
-          />
+          <picture>
+            <source srcSet="/flower-r.webp" type="image/webp" />
+            <img
+              src="/flower-r.png"
+              alt=""
+              className="w-auto h-[45vh] opacity-90 animate-float"
+              loading="lazy"
+            />
+          </picture>
         </div>
 
         <HeroSection {...hero} onCTAClick={handleCTAClick} />

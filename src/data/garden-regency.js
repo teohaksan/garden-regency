@@ -316,7 +316,7 @@ const gardenRegency = {
     tagline: '項目進程',
     title: '項目進程',
     titleEn: 'Project Timeline',
-    backgroundImage: '/location-wallpaper.png',
+    backgroundImage: '/location-wallpaper.webp',
     items: [
       { date: '2026 Q2', title: '項目命名', titleEn: 'Project Naming', description: '獲批預售樓花同意書，正式命名芊御', descriptionEn: 'Obtained pre-sale consent, officially named Garden Regency' },
       { date: '2026 Q3', title: '示範單位開放', titleEn: 'Show Flat Opens', description: 'ICC 62/F 示範單位預約參觀', descriptionEn: 'ICC 62/F show flat open for appointment visits' },

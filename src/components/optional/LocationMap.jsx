@@ -34,11 +34,16 @@ export default function LocationMap({
       style={{ backgroundColor: 'var(--color-bg)' }}
     >
       {/* Location wallpaper background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none"
-        style={{ backgroundImage: 'var(--location-bg)' }}
-        aria-hidden="true"
-      />
+      <picture className="absolute inset-0 pointer-events-none">
+        <source media="(max-width: 768px)" srcSet="/location-wallpaper-mobile.webp" type="image/webp" />
+        <source srcSet="/location-wallpaper.webp" type="image/webp" />
+        <img
+          src="/location-wallpaper.png"
+          alt=""
+          className="w-full h-full object-cover opacity-10"
+          loading="lazy"
+        />
+      </picture>
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-6 lg:px-12">
         <ScrollAnimation>

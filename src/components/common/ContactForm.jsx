@@ -334,11 +334,15 @@ export default function ContactForm({
                       style={{ borderColor: 'rgba(255,255,255,0.15)' }}
                       aria-label="放大二維碼"
                     >
-                      <img
-                        src={weChatQRSmall}
-                        alt="WeChat QR Code"
-                        className="w-24 h-24 object-cover block"
-                      />
+                      <picture>
+                        <source srcSet={weChatQRSmall.replace(/\.png$/, '.webp')} type="image/webp" />
+                        <img
+                          src={weChatQRSmall}
+                          alt="WeChat QR Code"
+                          className="w-24 h-24 object-cover block"
+                          loading="lazy"
+                        />
+                      </picture>
                     </button>
                   )}
                 </div>
@@ -411,19 +415,25 @@ export default function ContactForm({
             </p>
             
             {weChatQRBig ? (
-              <img
-                src={weChatQRBig}
-                alt="WeChat QR Code"
-                className="w-56 h-56 mx-auto object-contain block rounded-lg"
-                style={{ backgroundColor: '#07120a', padding: '8px' }}
-              />
+              <picture>
+                <source srcSet={weChatQRBig.replace(/\.png$/, '.webp')} type="image/webp" />
+                <img
+                  src={weChatQRBig}
+                  alt="WeChat QR Code"
+                  className="w-56 h-56 mx-auto object-contain block rounded-lg"
+                  style={{ backgroundColor: '#07120a', padding: '8px' }}
+                />
+              </picture>
             ) : (
-              <img
-                src={weChatQRSmall}
-                alt="WeChat QR Code"
-                className="w-56 h-56 mx-auto object-contain block rounded-lg"
-                style={{ backgroundColor: '#07120a', padding: '8px' }}
-              />
+              <picture>
+                <source srcSet={weChatQRSmall.replace(/\.png$/, '.webp')} type="image/webp" />
+                <img
+                  src={weChatQRSmall}
+                  alt="WeChat QR Code"
+                  className="w-56 h-56 mx-auto object-contain block rounded-lg"
+                  style={{ backgroundColor: '#07120a', padding: '8px' }}
+                />
+              </picture>
             )}
           </div>
         </div>

@@ -3,16 +3,15 @@ import ScrollAnimation from '../common/ScrollAnimation'
 import { useLanguage } from '../../context/LanguageContext'
 
 const FACILITY_LABELS = [
-  '主入口大堂',    // 01 (was: 會所園林 — renamed to avoid duplication with section description)
-  '園林泳池',      // 02
-  '健身中心',      // 03
-  '休閒貴賓室',    // 04
-  '兒童遊樂場',    // 05
-  '宴會廳',        // 06
-  '運動場地',      // 07
-  '智能生活',      // 08
-  '空中花園',      // 09
-  '景觀平台',      // 10
+  '園林泳池',      // 01 (was club-02)
+  '健身中心',      // 02
+  '休閒貴賓室',    // 03
+  '兒童遊樂場',    // 04
+  '宴會廳',        // 05
+  '運動場地',      // 06
+  '智能生活',      // 07
+  '空中花園',      // 08
+  '景觀平台',      // 09
 ]
 
 export default function ClubRegencySection({
@@ -24,11 +23,11 @@ export default function ClubRegencySection({
   const { t } = useLanguage()
   const [lightbox, setLightbox] = useState(null) // index or null
 
-  // Default to 10 club facility images if none provided
+  // Default to 9 club facility images (club-01 was the brochure cover, removed)
   const items = images.length > 0
     ? images
-    : Array.from({ length: 10 }, (_, i) => {
-        const n = String(i + 1).padStart(2, '0')
+    : Array.from({ length: 9 }, (_, i) => {
+        const n = String(i + 2).padStart(2, '0')  // Start from 02 (skip 01 = brochure cover)
         return {
           src: `/club-${n}-1200.webp`,
           thumb: `/club-${n}-700.webp`,
